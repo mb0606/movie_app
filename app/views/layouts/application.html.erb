@@ -7,20 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render 'layouts/header' %>
+<div class="container">
+
+
 
 	<% flash.each do |name, msg| %>
-		<% if msg == 'notice'%>
+		<% if flash[:notice]%>
 			<%= content_tag(:div, msg, class: "alert bg-success") %>
-		<% elsif msg == 'alert'%>
+		<% elsif flash[:alert]%>
 			<%= content_tag(:div, msg, class: "alert bg-warning") %>
-		<% elsif msg == 'error'%>
+		<% elsif flash[:error]%>
 			<%= content_tag(:div, msg, class: "alert bg-danger") %>
-			
-
-		<h1><%= msg + "   " + name %></h1>
+		<%end%>	
+		
 	<%end%>
 
 <%= yield %>
 
+
+
+</div>
 </body>
 </html>
