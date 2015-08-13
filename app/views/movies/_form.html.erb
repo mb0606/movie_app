@@ -13,36 +13,38 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+    <%= f.text_field :title , class: "form-control"%>
+  </div><br>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
+    <%= f.text_area :description , class: "form-control"%>
+  </div><br>
+
   <div class="field">
     <%= f.label :movie_length %><br>
-    <%= f.text_field :movie_length %>
-  </div>
+    <%= f.text_field :movie_length, class: "form-control" %>
+  </div><br>
+
   <div class="field">
     <%= f.label :director %><br>
-    <%= f.text_field :director %>
-  </div>
+    <%= f.text_field :director , class: "form-control"%>
+  </div><br>
+
 
     <%if @movie.image.present?%>
       <div><%= image_tag @movie.image.url(:thumb) %></div>
-    <% end %>
-    <p>Change current image below</p>
+      <p>Change current image below</p><br>
+    <%end%>
+
 
 
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+  </div><br>
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit, class: "btn btn-default" %>
   </div>
 <% end %>
