@@ -2,18 +2,16 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /movies
-  # GET /movies.json
   def index
     @movies = Movie.all
   end
 
-  # GET /movies/1
-  # GET /movies/1.json
   def show
+    # @reviews = @movie.reviews.order("created_at DESC") !!!!!!!Same result
+    @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
   end
 
-  # GET /movies/new
+
   def new
     @movie = current_user.movies.build
   end
