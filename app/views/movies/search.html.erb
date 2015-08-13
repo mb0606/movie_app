@@ -1,0 +1,18 @@
+<div class="row">
+	<%if @movies.results.empty? %>
+		<div class="opps">
+			<div class="jumbotron">
+    			<h3>That Movie is not avaiable</h3>
+    		</div>
+    	</div>
+    <%else%>
+	  	<% @movies.each do |movie| %>
+		    <div class="col-sm-6 col-md-3">
+		      <div class="thumbnail">
+		        <%= link_to (image_tag movie.image.url(:medium), class:"image"), movie %>
+		      </div>
+		    </div>
+		<%end%>
+	<%end%>
+
+</div>
