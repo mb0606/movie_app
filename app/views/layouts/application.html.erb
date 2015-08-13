@@ -9,7 +9,14 @@
 <body>
 
 	<% flash.each do |name, msg| %>
-		<%= content_tag(:div, msg, class: "alert bg-info") %>
+		<% if msg == 'notice'%>
+			<%= content_tag(:div, msg, class: "alert bg-success") %>
+		<% elsif msg == 'alert'%>
+			<%= content_tag(:div, msg, class: "alert bg-warning") %>
+		<% elsif msg == 'error'%>
+			<%= content_tag(:div, msg, class: "alert bg-danger") %>
+			
+
 		<h1><%= msg + "   " + name %></h1>
 	<%end%>
 
