@@ -8,6 +8,11 @@
 </head>
 <body>
 
+	<% flash.each do |name, msg| %>
+		<%= content_tag(:div, msg, class: "alert bg-info") %>
+		<h1><%= msg + "   " + name %></h1>
+	<%end%>
+
 <%= yield %>
 
 </body>
